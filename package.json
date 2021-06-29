@@ -1,0 +1,47 @@
+{
+  "name": "practice-0629-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev-alpha": "nodemon",
+    "dev-bravo": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lapto-Vu/practice-0629-node.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lapto-Vu/practice-0629-node/issues"
+  },
+  "homepage": "https://github.com/Lapto-Vu/practice-0629-node#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.7",
+    "axios": "^0.21.1",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.6",
+    "mini-css-extract-plugin": "^1.6.2",
+    "nodemon": "^2.0.7",
+    "pug": "^3.0.2",
+    "sass": "^1.35.1",
+    "sass-loader": "^12.1.0",
+    "style-loader": "^3.0.0",
+    "webpack": "^5.41.0",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^5.13.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2"
+  }
+}
