@@ -2,7 +2,17 @@
     .header__search
         a.mouse-fc(href="/search") 검색
     .header__title 
-        a 볼껴?
+        a(href="/") 볼껴?
     .header__info
-        a.header__info__login.mouse-fc(href="/login") 접속
-        a.header__info__join.mouse-fc(href="/join") 회원가입
+        if loggedIn
+            a.header__info__login.mouse-fc(href=`/users/${loggedInUser._id}`)=loggedInUser.username
+            a.header__info__join.mouse-fc(href="/users/logout") 나가기
+        else
+            a.header__info__login.mouse-fc(href="/login") 접속
+            a.header__info__join.mouse-fc(href="/join") 회원가입
+if message
+    .message
+        span=message
+if (messages.info) 
+    .message-green 
+        span=messages.info
