@@ -5,6 +5,8 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String },
+  avatarUrl: { type: String, default: "uploads/avatars/default_profile.jpeg", required: true},
+  videos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }]
 });
 
 userSchema.pre("save", async function () {

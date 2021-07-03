@@ -4,7 +4,7 @@ import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import rootRouter from "./Routers/rootRouter";
 import userRouter from "./Routers/userRouter"
-import { localsMiddleware } from "./middeware";
+import { localsMiddleware } from "./middleware";
 
 const app = express();
 
@@ -14,13 +14,13 @@ app.use(session({
 		secret: "Hello!",
         resave: true,
         saveUninitialized: true,
-        cookie: { maxAge: 60000 },
         store: MongoStore.create({ mongoUrl: "mongodb://127.0.0.1:27017/bolgyu" })
 }));
 app.use(express.urlencoded({ extended: true }));
 app.use(flash());
 app.use(localsMiddleware);
 app.use("/assets", express.static("assets"));
+app.use("/uploads", express.static("uploads"))
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 

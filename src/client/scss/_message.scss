@@ -22,9 +22,9 @@
 }
 
 .message {
-  @include message(rgb(255, 110, 84));
+  @include message($orange);
 }
 
 .message-green {
-  @include message(rgb(156, 211, 124));
+  @include message($green);
 }

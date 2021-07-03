@@ -1,0 +1,9 @@
+extends base
+
+block content
+    .wrapper--board
+        .board
+            if loggedIn
+                a.board__videoUpload(href=`${loggedInUser._id}/video-upload`) 비디오 업로드
+                a.board__profile(href=`${loggedInUser._id}/profile`) 프로필 편집
+        .home
