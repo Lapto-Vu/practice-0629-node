@@ -17,6 +17,7 @@
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
+
   & > a {
     display: flex;
     justify-content: center;
@@ -26,7 +27,7 @@
     display: flex;
     font-size: 1rem;
     background-color: $grey;
-    border-radius: 5px;
+    border: 1px solid $border;
   }
 
   & > div {
