@@ -1,0 +1,27 @@
+extends base
+include mixins/tagMix
+
+block content
+    .wrapper
+        .inner 
+            .video
+                .video__watch
+                    .video__watch__container
+                        video(controls, src=`/${video.fileUrl}`)
+                    .video__watch__data 
+                        .video-title
+                            span=video.title
+                            if loggedIn
+                                if loggedInUser._id==video.owner._id
+                                    a(href=`/videos/${video._id}/edit`) 동영상 편집
+                        .video-meta #{video.meta.views} 회 • #{new Date(video.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}
+                        .video-divider
+                        .video-owner
+                            a(href=`/users/${video.owner._id}`)   
+                                img(src=`/${video.owner.avatarUrl}`)
+                            a(href=`/users/${video.owner._id}`)=video.owner.username
+                        .video-hashtags
+                            each tag in video.hashtags
+                                +tagMix(tag)
+                        .video-sub=video.description
+                .video__comments

@@ -1,5 +1,9 @@
 extends base
+include mixins/videoMix
 
 block content
     .wrapper
         .home
+            if videos
+                each video in videos
+                    +videoMix(video)

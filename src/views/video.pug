@@ -1,0 +1,15 @@
+extends base
+
+block content
+    .wrapper
+        .join
+            form.join__inner(method="POST", enctype="multipart/form-data")
+                img.thumb__image(src=`/${video.thumbUrl}`)
+                label.join__inner__label(for="thumb") 썸네일 사진 재선택
+                input.join__inner__avatar(type="file", accept="image/*", id="thumb", name="thumb")
+                input.join__inner__input(type="text", placeholder="제목", value=`${video.title}`, name="title", required, maxlength=50)
+                input.join__inner__input(type="text", placeholder="설명", value=`${video.description}`, name="description", required, minlength=5)
+                input.join__inner__input(type="text", placeholder="해쉬태그 / 콤마로 구분", value=`${video.hashtags}`, name="hashtags", required)
+                input.join__inner__submit(type="submit", value="동영상 편집")
+                .join__inner__divider
+                a.join__inner__link(href=`delete`) 비디오 삭제

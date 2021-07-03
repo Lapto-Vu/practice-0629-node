@@ -3,15 +3,29 @@ import User from "../models/User";
 
 
 export const home = async (req, res) => {
-  return res.render("home");
+  const videos = await Video.find({}).sort({ createdAt: "desc" }).populate("owner");
+  return res.render("home", {videos});
 };
 
 export const search = async (req, res) => {
-  return res.render("search");
+  const {query: {keyword}} = req;
+  if (keyword) {
+    var searchResult = await Video.find({title: {$regex: new RegExp(`${keyword}$`, "i")}}).populate("owner");
+  }
+  return res.render("search", { videos: searchResult });
 };
 
-export const board = (req, res) => {
-  return res.render("board");
+export const watch = async (req, res) => {
+  const {params: { id } } = req;
+  const video = await Video.findById(id).populate("owner");
+  return res.render("watch", { video })
+}
+
+export const board = async (req, res) => {
+  const { params: { id } } = req;
+  const videos = await Video.find({ owner : id }).sort({ createdAt: "desc" }).populate("owner");
+  const user = await User.findById(id);
+  return res.render("board", {videos, user});
 }
 
 export const getVideoUpload = (req, res) => {
@@ -36,4 +50,28 @@ export const postVideoUpload = async (req, res) => {
   } catch (error) {
     return res.status(400).render("upload", {message: error});
   }
+}
+
+export const getEditVideo = async (req, res) => {
+  const { params: { id }} = req;
+  const video = await Video.findById(id);
+  return res.render("video", {video});
+}
+
+export const postEditVideo = async (req, res) => {
+  const { id } = req.params;
+  const{ file, body :{ title, description, hashtags } }= req;
+  const video = await Video.findById(id);
+  await Video.findByIdAndUpdate(id, {
+    thumbUrl: file ? file.path : video.thumbUrl,
+    title,
+    description,
+    hashtags: Video.formatHashtags(hashtags),
+  });
+  req.flash("info", "성공적으로 동영상을 편집하였습니다.");
+  return res.redirect(`/videos/${id}`);
+}
+
+export const videoDelete = async (req, res) => {
+  return res.redirect("/")
 }

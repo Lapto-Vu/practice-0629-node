@@ -3,7 +3,8 @@ import session from "express-session";
 import flash from "express-flash";
 import MongoStore from "connect-mongo";
 import rootRouter from "./Routers/rootRouter";
-import userRouter from "./Routers/userRouter"
+import userRouter from "./Routers/userRouter";
+import videoRouter from "./Routers/videoRouter";
 import { localsMiddleware } from "./middleware";
 
 const app = express();
@@ -23,5 +24,6 @@ app.use("/assets", express.static("assets"));
 app.use("/uploads", express.static("uploads"))
 app.use("/", rootRouter);
 app.use("/users", userRouter);
+app.use("/videos", videoRouter);
 
 export default app;

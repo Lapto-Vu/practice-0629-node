@@ -2,7 +2,7 @@
   width: 25rem;
   min-height: 36rem;
   border: 1px solid $border;
-  padding: 2.5rem 1.5rem;
+  padding: 1rem 1rem;
   font-family: "Nanum Gothic", sans-serif;
   letter-spacing: 0px;
 
@@ -22,6 +22,13 @@
       height: 9rem;
       border-radius: 50%;
       object-fit: cover;
+      border: 1px solid $border;
+    }
+    & > .thumb__image {
+      width: 100%;
+      height: 9rem;
+      object-fit: cover;
+      border: 1px solid $border;
     }
 
     &__label {
@@ -31,7 +38,7 @@
       justify-content: center;
       align-items: center;
       background-color: $grey;
-      border-radius: 5px;
+      border: 1px solid $border;
       &:hover {
         cursor: pointer;
       }
@@ -45,13 +52,12 @@
     }
 
     &__input {
-      height: 4rem;
+      height: 3rem;
       width: 100%;
       padding: 0 13px;
       border-style: none;
       outline-style: none;
-      border-radius: 5px;
-      border: 10px solid $grey;
+      border: 1px solid $border;
       background-color: white;
       font-size: 1rem;
     }
@@ -59,7 +65,7 @@
     &__submit {
       background-color: rgb(223, 236, 216);
       border-style: none;
-      border-radius: 5px;
+      border: 1px solid $border;
       font-size: 1rem;
       font-family: "Nanum Gothic", sans-serif;
       height: 3rem;
@@ -71,14 +77,14 @@
     &__divider {
       width: 100%;
       height: 4px;
-      border-radius: 5px;
       background-color: $grey;
+      border: 1px solid $border;
     }
 
     &__link {
       background-color: rgb(228, 207, 205);
       border-style: none;
-      border-radius: 5px;
+      border: 1px solid $border;
       font-size: 1rem;
       height: 3rem;
       width: 100%;

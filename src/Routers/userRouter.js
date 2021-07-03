@@ -6,9 +6,9 @@ import { board, getVideoUpload, postVideoUpload } from "../Controllers/videoCont
 const userRouter = express.Router();
 
 userRouter.get("/logout", logout);
-userRouter.get("/:id", board);
-userRouter.route("/:id/profile").get(getProfile).post(avatarUpload.single("avatar"), postProfile);
-userRouter.route("/:id/change-password").get(getChangePassword).post(postChangePassword);
-userRouter.route("/:id/video-upload").get(getVideoUpload).post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postVideoUpload)
+userRouter.get("/:id([0-9a-f]{24})", board);
+userRouter.route("/:id([0-9a-f]{24})/profile").get(getProfile).post(avatarUpload.single("avatar"), postProfile);
+userRouter.route("/:id([0-9a-f]{24})/change-password").get(getChangePassword).post(postChangePassword);
+userRouter.route("/:id([0-9a-f]{24})/video-upload").get(getVideoUpload).post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postVideoUpload)
 
 export default userRouter;

@@ -1,4 +1,5 @@
 extends base
+include mixins/videoMix
 
 block content
     .wrapper--board
@@ -6,4 +7,11 @@ block content
             if loggedIn
                 a.board__videoUpload(href=`${loggedInUser._id}/video-upload`) 비디오 업로드
                 a.board__profile(href=`${loggedInUser._id}/profile`) 프로필 편집
+            else 
+                div.board__show #{user.username} 님의 채널
         .home
+            if videos
+                each video in videos
+                    +videoMix(video)
+            else
+                span 아직 업로드한 비디오가 없습니다.

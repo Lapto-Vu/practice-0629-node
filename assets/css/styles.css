@@ -176,7 +176,7 @@ a {
 .header .mouse-fc {
   position: relative;
   transition: all 0.2s ease;
-  bottom: -10px;
+  bottom: -7px;
 }
 .header .mouse-fc:hover {
   cursor: pointer;
@@ -260,15 +260,57 @@ a {
 
 .home {
   width: 100%;
-  min-height: calc(100vh - 10rem);
+  height: calc(100vh - 10rem);
   border: 1px solid #cacaca;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr));
+  grid-auto-rows: 14rem;
+  gap: 15px;
+  color: #2a2a2a;
+  font-family: "Nanum Gothic", sans-serif;
+  letter-spacing: 0px;
+  overflow: scroll;
+}
+.home::-webkit-scrollbar {
+  display: none;
+}
+.home__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #cacaca;
+}
+.home__inner__title {
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+.home__inner__owner {
+  font-size: 0.9rem;
+  color: #707070;
+}
+.home__inner__meta {
+  font-size: 0.8rem;
+  color: #707070;
+}
+.home__inner div {
+  padding: 0 10px;
+}
+.home__inner img {
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+}
+.home__nothing {
+  font-size: 1rem;
+  color: #707070;
 }
 
 .join {
   width: 25rem;
   min-height: 36rem;
   border: 1px solid #cacaca;
-  padding: 2.5rem 1.5rem;
+  padding: 1rem 1rem;
   font-family: "Nanum Gothic", sans-serif;
   letter-spacing: 0px;
 }
@@ -287,6 +329,13 @@ a {
   height: 9rem;
   border-radius: 50%;
   object-fit: cover;
+  border: 1px solid #cacaca;
+}
+.join__inner > .thumb__image {
+  width: 100%;
+  height: 9rem;
+  object-fit: cover;
+  border: 1px solid #cacaca;
 }
 .join__inner__label {
   width: 100%;
@@ -295,7 +344,7 @@ a {
   justify-content: center;
   align-items: center;
   background-color: #ebebeb;
-  border-radius: 5px;
+  border: 1px solid #cacaca;
 }
 .join__inner__label:hover {
   cursor: pointer;
@@ -307,20 +356,19 @@ a {
   border: 0;
 }
 .join__inner__input {
-  height: 4rem;
+  height: 3rem;
   width: 100%;
   padding: 0 13px;
   border-style: none;
   outline-style: none;
-  border-radius: 5px;
-  border: 10px solid #ebebeb;
+  border: 1px solid #cacaca;
   background-color: white;
   font-size: 1rem;
 }
 .join__inner__submit {
   background-color: #dfecd8;
   border-style: none;
-  border-radius: 5px;
+  border: 1px solid #cacaca;
   font-size: 1rem;
   font-family: "Nanum Gothic", sans-serif;
   height: 3rem;
@@ -331,24 +379,19 @@ a {
 .join__inner__divider {
   width: 100%;
   height: 4px;
-  border-radius: 5px;
   background-color: #ebebeb;
+  border: 1px solid #cacaca;
 }
 .join__inner__link {
   background-color: #e4cfcd;
   border-style: none;
-  border-radius: 5px;
+  border: 1px solid #cacaca;
   font-size: 1rem;
   height: 3rem;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-body {
-  font-family: "Black Han Sans", sans-serif;
-  letter-spacing: 0.3rem;
 }
 
 .wrapper--board {
@@ -381,4 +424,165 @@ body {
   font-size: 1rem;
   background-color: #ebebeb;
   border-radius: 5px;
+}
+.board > div {
+  font-family: "Black Han Sans", sans-serif;
+  letter-spacing: 0.3rem;
+  position: relative;
+  bottom: -2rem;
+  color: #cacaca;
+  font-style: italic;
+  font-size: 2rem;
+  padding-right: 2rem;
+}
+
+.inner {
+  width: 100%;
+  height: calc(100vh - 10rem);
+  border: 1px solid #cacaca;
+  padding: 1rem 1rem 0rem 1rem;
+  color: #2a2a2a;
+  font-family: "Nanum Gothic", sans-serif;
+  letter-spacing: 0px;
+  overflow: scroll;
+}
+.inner::-webkit-scrollbar {
+  display: none;
+}
+
+.video {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 15px;
+  margin-bottom: 1rem;
+}
+.video > div {
+  border: 1px solid #cacaca;
+}
+.video__watch {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+.video__watch__container > video {
+  width: 100%;
+  height: 28rem;
+  object-fit: cover;
+}
+.video__watch__data {
+  display: grid;
+  grid-template-rows: repeat(auto-fill, minmax(min-content, 1fr));
+  align-content: center;
+  padding: 15px 15px;
+  gap: 3px;
+}
+.video__watch__data > .video-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.video__watch__data > .video-title > a {
+  width: 6rem;
+  height: 1.5rem;
+  background-color: #ebebeb;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #cacaca;
+}
+.video__watch__data > .video-meta {
+  font-size: 0.8rem;
+  color: #707070;
+  margin-bottom: 1rem;
+  padding-right: 1rem;
+}
+.video__watch__data > .video-divider {
+  width: 100%;
+  height: 1px;
+  border-radius: 2px;
+  background-color: #cacaca;
+  margin-bottom: 10px;
+}
+.video__watch__data > .video-owner {
+  font-size: 0.95rem;
+  color: #4e4e4e;
+  padding-right: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.video__watch__data > .video-owner img {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #cacaca;
+}
+.video__watch__data > .video-hashtags {
+  font-size: 0.8rem;
+  color: #707070;
+  margin-bottom: 8px;
+  margin-left: 3.9rem;
+}
+.video__watch__data > .video-sub {
+  font-size: 0.8rem;
+  margin-left: 3.9rem;
+  margin-bottom: 0.5rem;
+  color: #707070;
+}
+.video__comments {
+  height: 12rem;
+}
+
+.wrapper--search {
+  width: 100%;
+  min-height: calc(100vh - 10rem);
+  padding: 1rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.search {
+  font-family: "Nanum Gothic", sans-serif;
+  letter-spacing: 0;
+  width: 100%;
+  height: 3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.search__input {
+  height: 4rem;
+  width: 20rem;
+  padding: 0 13px;
+  border-style: none;
+  outline-style: none;
+  border-radius: 5px;
+  border: 10px solid #ebebeb;
+  background-color: white;
+  font-size: 1rem;
+}
+.search__submit {
+  background-color: #dfecd8;
+  border-style: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  width: 6rem;
+  font-family: "Nanum Gothic", sans-serif;
+  height: 4rem;
+}
+.search__submit:hover {
+  cursor: pointer;
+}
+
+body {
+  font-family: "Black Han Sans", sans-serif;
+  letter-spacing: 0.3rem;
 }

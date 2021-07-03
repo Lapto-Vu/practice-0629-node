@@ -1,0 +1,8 @@
+mixin videoMix(video)
+    div.home__inner
+        a.home__inner__img(href=`/videos/${video.id}`)
+            img(src=`/${video.thumbUrl}`)
+        .home__inner__title=video.title
+        .home__inner__owner
+            a(href=`/users/${video.owner._id}`)=video.owner.username
+        .home__inner__meta #{video.meta.views} 회 • #{`${new Date() - video.createdAt}` > 60000 ? (`${new Date() - video.createdAt}` > 3600000 ? (`${new Date() - video.createdAt}`> 86400000 ? `${Math.floor(`${new Date() - video.createdAt}`/86400000)}일` : `${Math.floor(`${new Date() - video.createdAt}`/3600000)}시간`) : `${Math.floor(`${new Date() - video.createdAt}`/60000)}분`) : "1분"}전
