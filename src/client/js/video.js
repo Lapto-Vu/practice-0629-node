@@ -1,3 +1,5 @@
+import regeneratorRuntime from "regenerator-runtime";
+
 const video = document.querySelector("video");
 const videoController = document.getElementById("videoController");
 const psBtn = document.getElementById("playPauseBtn");
