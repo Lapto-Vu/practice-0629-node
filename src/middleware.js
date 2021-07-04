@@ -1,5 +1,5 @@
 import multer from "multer";
-import multers3 from "multer-s3";
+import multerS3 from "multer-s3";
 import Video from "./models/Video";
 import User from "./models/User";
 import Comment from "./models/Comment";
