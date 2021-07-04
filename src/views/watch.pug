@@ -37,7 +37,7 @@ block content
                 .video__comments
                     if loggedIn
                         form.video__comments__section#comments  
-                            img(src="/uploads/avatars/default_profile.jpeg")
+                            img(src=`${loggedInUser.avatarUrl}`)
                             textarea#text(cols="30", rows="10")
                             button 댓글
                         .video__comments__divider
