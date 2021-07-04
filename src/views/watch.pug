@@ -6,7 +6,7 @@ block content
         .inner 
             .video
                 .video__watch
-                    .video__watch__container#videoInner
+                    .video__watch__container#videoInner(data-id=video._id)
                         video(src=`/${video.fileUrl}`)
                         #videoController
                             i.fas.fa-play#playPauseBtn
@@ -35,6 +35,24 @@ block content
                                 +tagMix(tag)
                         .video-sub=video.description
                 .video__comments
+                    if loggedIn
+                        form.video__comments__section#comments  
+                            img(src="/uploads/avatars/default_profile.jpeg")
+                            textarea#text(cols="30", rows="10")
+                            button 댓글
+                        .video__comments__divider
+                    .video__comments__render
+                        each comment in video.comments.reverse()
+                            .comment
+                                a.comment__avatar(href=`/users/${comment.owner._id}`)   
+                                    img(src=`/${comment.owner.avatarUrl}`)
+                                .comment__user
+                                    a(href=`/users/${comment.owner._id}`)=comment.owner.username
+                                    div=comment.text
+                                if loggedIn
+                                    if loggedInUser._id==comment.owner._id
+                                        .comment__delete(data-id=comment._id) 삭제
+                                
 block scripts
     script(src="https://kit.fontawesome.com/6ade36b36a.js", crossorigin="anonymous", defer)
     script(src="/assets/js/video.js")  

@@ -5,12 +5,14 @@ import MongoStore from "connect-mongo";
 import rootRouter from "./Routers/rootRouter";
 import userRouter from "./Routers/userRouter";
 import videoRouter from "./Routers/videoRouter";
+import apiRouter from "./Routers/apiRouter";
 import { localsMiddleware } from "./middleware";
 
 const app = express();
 
 app.set("view engine", "pug");
 app.set("views", process.cwd() + "/src/views");
+app.use(express.json());
 app.use(session({
 		secret: "Hello!",
         resave: true,
@@ -25,5 +27,6 @@ app.use("/uploads", express.static("uploads"))
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
+app.use("/api", apiRouter)
 
 export default app;

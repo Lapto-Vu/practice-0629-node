@@ -4,8 +4,10 @@ block content
     .wrapper
         .join
             form.join__inner(method="POST")
-                input.join__inner__input(type="email", placeholder="EMAIL", name="email", required)
-                input.join__inner__input(type="text", placeholder="USERNAME", name="username", required)
-                input.join__inner__input(type="password", placeholder="PASSWORD", name="password", required)
-                input.join__inner__input(type="password", placeholder="PASSWORD CONFIRM", name="passwordConfirm", required)
-                input.join__inner__submit(type="submit", value="SUBMIT")
+                .join__inner__text
+                    span 대환영!
+                input.join__inner__input(type="email", placeholder="이메일", name="email", required)
+                input.join__inner__input(type="text", placeholder="아이디", name="username", required)
+                input.join__inner__input(type="password", placeholder="비밀번호", name="password", required)
+                input.join__inner__input(type="password", placeholder="비밀번호 확인", name="passwordConfirm", required)
+                input.join__inner__submit(type="submit", value="회원가입")

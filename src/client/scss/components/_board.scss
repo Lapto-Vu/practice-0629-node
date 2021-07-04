@@ -1,6 +1,6 @@
 .wrapper--board {
   width: 100%;
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 7.5rem);
   padding: 1rem 1rem 1rem 1rem;
   display: flex;
   flex-direction: column;
@@ -9,9 +9,10 @@
 
 .board {
   font-family: "Nanum Gothic", sans-serif;
+  color: $black;
   letter-spacing: 0;
   width: 100%;
-  height: 3rem;
+  height: 2rem;
   margin-bottom: 1rem;
   display: flex;
   justify-content: flex-end;
@@ -34,8 +35,11 @@
     font-family: "Black Han Sans", sans-serif;
     letter-spacing: 0.3rem;
     position: relative;
-    bottom: -2rem;
-    color: $border;
+    bottom: -1.5rem;
+    z-index: -1;
+    color: $lightblack;
+    text-shadow: 2px 1px 1px rgba(255, 0, 0, 0.329),
+      -1px -2px 1px rgba(16, 179, 255, 0.4);
     font-style: italic;
     font-size: 2rem;
     padding-right: 2rem;

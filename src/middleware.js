@@ -1,6 +1,7 @@
 import multer from "multer";
 import Video from "./models/Video";
 import User from "./models/User";
+import Comment from "./models/Comment";
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = (req.session.loggedIn) ? true : false;
@@ -13,6 +14,31 @@ export const loggedInOnlyMiddleware = (req, res, next) => {
     return next();
   } else {
     req.flash("info", "접근 할 수 없는 경로입니다. 먼저 로그인 하십시오.");
+    console.log("dkfjd")
+    return res.redirect("/");
+  }
+};
+
+
+export const userItselfOnlyMiddleware = async (req, res, next) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+  if (req.session.user._id==user._id) {
+    return next();
+  } else {
+    req.flash("info", "사용자 페이지에 대한 권한이 없습니다. 접근 할 수 없습니다.");
+    return res.redirect("/");
+  }
+};
+
+
+export const commentOwnerOnlyMiddleware = async (req, res, next) => {
+  const { id } = req.params;
+  const comment = await Comment.findById(id).populate("owner");
+  if (req.session.user._id==comment.owner._id) {
+    return next();
+  } else {
+    req.flash("info", "댓글에 대한 권한이 없습니다. 접근 할 수 없습니다.");
     return res.redirect("/");
   }
 };

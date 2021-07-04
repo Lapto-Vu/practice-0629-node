@@ -1,11 +1,11 @@
 @mixin message($color) {
   width: 100%;
-  height: 5rem;
+  height: 4rem;
   position: absolute;
-  top: -1rem;
+  top: -1.5rem;
   z-index: -1;
   background-color: $color;
-  animation: error-message 1.5s ease forwards;
+  animation: error-message 2s ease forwards;
   color: white;
   display: flex;
   justify-content: center;

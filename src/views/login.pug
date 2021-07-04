@@ -4,6 +4,8 @@ block content
     .wrapper
         .join
             form.join__inner(method="POST")
-                input.join__inner__input(type="email", placeholder="EMAIL", name="email", required)
-                input.join__inner__input(type="password", placeholder="PASSWORD", name="password", required)
-                input.join__inner__submit(type="submit", value="SUBMIT")
+                .join__inner__text
+                    span 즉시 접속!
+                input.join__inner__input(type="email", placeholder="이메일", name="email", required)
+                input.join__inner__input(type="password", placeholder="비밀번호", name="password", required)
+                input.join__inner__submit(type="submit", value="로그인")

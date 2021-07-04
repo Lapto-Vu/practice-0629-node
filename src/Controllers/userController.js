@@ -18,9 +18,10 @@ export const postJoin = async (req, res) => {
     }
     try {   
         await User.create({username, email, password});
+        req.flash("info", "성공적으로 회원가입 되었습니다.");
         return res.status(200).redirect("/login");
       } catch (error) {
-        return res.status(400).render("join", {errorMessage: error._message});
+        return res.status(400).render("join", {message: error._message});
       }
 };
 
@@ -36,6 +37,7 @@ export const postLogin = async (req, res) => {
     if (!passwordConfirm) {
       return res.status(400).render("login", {message: "비밀번호가 틀렸습니다."});
     }
+    req.flash("info", "성공적으로 로그인 하였습니다.");
     req.session.loggedIn = true;
     req.session.user = user;
     return res.redirect("/");
