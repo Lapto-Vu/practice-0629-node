@@ -1,7 +1,7 @@
 mixin videoMix(video)
     div.home__inner
         a.home__inner__img(href=`/videos/${video.id}`)
-            img(src=`/${video.thumbUrl}`)
+            img(src=`${video.thumbUrl}`)
         .home__inner__title=video.title
         .home__inner__owner
             a(href=`/users/${video.owner._id}`)=video.owner.username

@@ -4,7 +4,7 @@ block content
     .wrapper
         .join
             form.join__inner(method="POST", enctype="multipart/form-data")
-                img.thumb__image(src=`/${video.thumbUrl}`)
+                img.thumb__image(src=`${video.thumbUrl}`)
                 label.join__inner__label(for="thumb") 썸네일 사진 업로드
                 input.join__inner__avatar(type="file", accept="image/*", id="thumb", name="thumb")
                 input.join__inner__input(type="text", placeholder="제목", value=`${video.title}`, name="title", required, maxlength=50)

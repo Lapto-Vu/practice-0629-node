@@ -4,7 +4,7 @@ block content
     .wrapper
         .join
             form.join__inner(method="POST",  enctype="multipart/form-data")
-                img.avatar__image(src=`/${loggedInUser.avatarUrl}`)
+                img.avatar__image(src=`${loggedInUser.avatarUrl}`)
                 label.join__inner__label(for="avatar") 사진 업로드
                 input.join__inner__avatar(type="file", id="avatar" name="avatar", accept="image/*")
                 input.join__inner__input(type="email", placeholder="이메일", name="email", required, value=loggedInUser.email)
