@@ -44,8 +44,8 @@ export const postVideoUpload = async (req, res) => {
     const newVideo = await Video.create({
       title,
       description,
-      fileUrl: video[0].path,
-      thumbUrl: thumb[0].path,
+      fileUrl: video[0].location,
+      thumbUrl: thumb[0].location,
       owner: _id,
       hashtags: Video.formatHashtags(hashtags),
     });
@@ -69,7 +69,7 @@ export const postEditVideo = async (req, res) => {
   const{ file, body :{ title, description, hashtags } }= req;
   const video = await Video.findById(id);
   await Video.findByIdAndUpdate(id, {
-    thumbUrl: file ? file.path : video.thumbUrl,
+    thumbUrl: file ? file.location : video.thumbUrl,
     title,
     description,
     hashtags: Video.formatHashtags(hashtags),
