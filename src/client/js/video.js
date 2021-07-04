@@ -135,11 +135,17 @@ const handleCommentDelete = async (event) => {
   window.location.reload();
 }
 
-deleteBtn.forEach( (item) => {
-  item.addEventListener("click", handleCommentDelete)
-});
 
-form.addEventListener("submit", handleComment);
+if (form) {
+  form.addEventListener("submit", handleComment);
+}
+
+if (deleteBtn) {
+  deleteBtn.forEach( (item) => {
+    item.addEventListener("click", handleCommentDelete)
+  });
+}
+
 psBtn.addEventListener("click", handlePlayAndStop);
 volumeBtn.addEventListener("click", handleSound);
 volumeRange.addEventListener("input", handleVolume);
