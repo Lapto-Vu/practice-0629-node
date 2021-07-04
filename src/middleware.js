@@ -1,7 +1,29 @@
 import multer from "multer";
+import multers3 from "multer-s3";
 import Video from "./models/Video";
 import User from "./models/User";
 import Comment from "./models/Comment";
+import aws from "aws-sdk"
+
+const s3 = new aws.S3({
+  credentials: {
+    accessKeyId: process.env.AWS_ID,
+    secretAccessKey: process.env.AWS_SECRET,
+  },
+});
+
+const s3ImageUploader = multerS3({
+  s3: s3,
+  bucket: "foxview/images",
+  acl: "public-read",
+});
+
+const s3VideoUploader = multerS3({
+  s3: s3,
+  bucket: "foxview/videos",
+  acl: "public-read",
+});
+
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = (req.session.loggedIn) ? true : false;
@@ -59,6 +81,7 @@ export const avatarUpload = multer({
   limits: {
     fileSize: 3000000,
   },
+  storage: s3ImageUploader,
 });
 
 export const videoUpload = multer({
@@ -66,4 +89,5 @@ export const videoUpload = multer({
   limits: {
     fileSize: 10000000,
   },
+  storage: s3VideoUploader,
 });
