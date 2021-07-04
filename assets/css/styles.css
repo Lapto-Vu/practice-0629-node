@@ -664,6 +664,7 @@ a {
   gap: 5px;
 }
 .comment__user a {
+  width: min-content;
   font-size: 1rem;
 }
 .comment__user div {
@@ -673,6 +674,7 @@ a {
   word-break: break-all;
 }
 .comment__delete {
+  opacity: 0;
   font-size: 0.9rem;
   min-width: 3rem;
   height: 2rem;
@@ -682,9 +684,15 @@ a {
   background-color: #e4cfcd;
   border: 1px solid #cacaca;
   color: #616161;
+  transition: opacity 0.4s ease;
 }
 .comment__delete:hover {
   cursor: pointer;
+}
+
+.comment:hover .comment__delete {
+  opacity: 1;
+  transition: opacity 0.4s ease;
 }
 
 .wrapper--search {

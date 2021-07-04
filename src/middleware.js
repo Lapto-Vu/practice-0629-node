@@ -14,7 +14,6 @@ export const loggedInOnlyMiddleware = (req, res, next) => {
     return next();
   } else {
     req.flash("info", "접근 할 수 없는 경로입니다. 먼저 로그인 하십시오.");
-    console.log("dkfjd")
     return res.redirect("/");
   }
 };

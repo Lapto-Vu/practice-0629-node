@@ -5,11 +5,7 @@ module.exports = {
   entry: {
     main: "./src/client/js/main.js",
     video: "./src/client/js/video.js",
-    recorder: "./src/client/js/recorder.js",
-    comment: "./src/client/js/comment.js"
   },
-  mode: "development",
-  watch: true,
   plugins: [new MiniCssExtractPlugin({filename: "css/styles.css"})],
   output: {
     filename: "js/[name].js",
