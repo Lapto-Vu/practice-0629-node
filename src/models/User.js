@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
   username: { type: String, required: true, unique: true },
   password: { type: String },
-  avatarUrl: { type: String, default: "http://59.15.195.235/default_profile.jpeg", required: true},
+  avatarUrl: { type: String, default: "https://foxview.s3.ap-northeast-2.amazonaws.com/images/default_profile.jpeg", required: true},
   videos: [{ type: mongoose.Schema.Types.ObjectId, ref: "Video" }],
   comments: [{ type: mongoose.Schema.Types.ObjectId, required: true, ref: "Comment" }]
 });
